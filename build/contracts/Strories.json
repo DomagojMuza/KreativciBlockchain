@@ -1,0 +1,2092 @@
+{
+  "contractName": "Strories",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_headline",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_content",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_postedAt",
+          "type": "uint256"
+        }
+      ],
+      "name": "postStory",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getStory",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "headline",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "postedAt",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exist",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct Strories.Story",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.0+commit.9e61f92b\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"getStory\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"headline\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"content\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"postedAt\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exist\",\"type\":\"bool\"}],\"internalType\":\"struct Strories.Story\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_headline\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_content\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_postedAt\",\"type\":\"uint256\"}],\"name\":\"postStory\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/C/FAKULTET/1.diplomski/Blockchain/Projekt/contracts/Stories.sol\":\"Strories\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/FAKULTET/1.diplomski/Blockchain/Projekt/contracts/Stories.sol\":{\"keccak256\":\"0x3a23c33d6e5da7f810fccec77655998b8d64a3653fd5c522331176f3604784f8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://73d689bf7756710f3c01a3773073e69c3cab4c297445cafc11a3f4e58aa31983\",\"dweb:/ipfs/QmRySHiREdfeqWRxvnG6qCdPPBBU7J6mUXZvVLBbkYz3xM\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061093f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806303cf950f1461003b578063a5726c451461006b575b600080fd5b610055600480360381019061005091906105f1565b610087565b60405161006291906107e1565b60405180910390f35b6100856004803603810190610080919061061a565b610407565b005b61008f6104ba565b816100986104ba565b6000808381526020019081526020016000206040518060a001604052908160008201548152602001600182018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101585780601f1061012d57610100808354040283529160200191610158565b820191906000526020600020905b81548152906001019060200180831161013b57829003601f168201915b50505050508152602001600282018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101fa5780601f106101cf576101008083540402835291602001916101fa565b820191906000526020600020905b8154815290600101906020018083116101dd57829003601f168201915b50505050508152602001600382015481526020016004820160009054906101000a900460ff1615151515815250509050806080015161026e576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610265906107c1565b60405180910390fd5b6000808581526020019081526020016000206040518060a001604052908160008201548152602001600182018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561032e5780601f106103035761010080835404028352916020019161032e565b820191906000526020600020905b81548152906001019060200180831161031157829003601f168201915b50505050508152602001600282018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103d05780601f106103a5576101008083540402835291602001916103d0565b820191906000526020600020905b8154815290600101906020018083116103b357829003601f168201915b50505050508152602001600382015481526020016004820160009054906101000a900460ff16151515158152505092505050919050565b6040518060a00160405280858152602001848152602001838152602001828152602001600115158152506000808681526020019081526020016000206000820151816000015560208201518160010190805190602001906104699291906104eb565b5060408201518160020190805190602001906104869291906104eb565b506060820151816003015560808201518160040160006101000a81548160ff02191690831515021790555090505050505050565b6040518060a00160405280600081526020016060815260200160608152602001600081526020016000151581525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061052c57805160ff191683800117855561055a565b8280016001018555821561055a579182015b8281111561055957825182559160200191906001019061053e565b5b509050610567919061056b565b5090565b5b8082111561058457600081600090555060010161056c565b5090565b600082601f83011261059957600080fd5b81356105ac6105a782610830565b610803565b915080825260208301602083018583830111156105c857600080fd5b6105d383828461089f565b50505092915050565b6000813590506105eb816108f2565b92915050565b60006020828403121561060357600080fd5b6000610611848285016105dc565b91505092915050565b6000806000806080858703121561063057600080fd5b600061063e878288016105dc565b945050602085013567ffffffffffffffff81111561065b57600080fd5b61066787828801610588565b935050604085013567ffffffffffffffff81111561068457600080fd5b61069087828801610588565b92505060606106a1878288016105dc565b91505092959194509250565b6106b681610889565b82525050565b60006106c78261085c565b6106d18185610867565b93506106e18185602086016108ae565b6106ea816108e1565b840191505092915050565b6000610702600f83610878565b91507f53746f7279206e6f7420666f756e6400000000000000000000000000000000006000830152602082019050919050565b600060a08301600083015161074d60008601826107b2565b506020830151848203602086015261076582826106bc565b9150506040830151848203604086015261077f82826106bc565b915050606083015161079460608601826107b2565b5060808301516107a760808601826106ad565b508091505092915050565b6107bb81610895565b82525050565b600060208201905081810360008301526107da816106f5565b9050919050565b600060208201905081810360008301526107fb8184610735565b905092915050565b6000604051905081810181811067ffffffffffffffff8211171561082657600080fd5b8060405250919050565b600067ffffffffffffffff82111561084757600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b600082825260208201905092915050565b60008115159050919050565b6000819050919050565b82818337600083830152505050565b60005b838110156108cc5780820151818401526020810190506108b1565b838111156108db576000848401525b50505050565b6000601f19601f8301169050919050565b6108fb81610895565b811461090657600080fd5b5056fea2646970667358221220f5f155c8a5c750d9f4375a89bc1fbd0227f6719204222b2bb52865f1d4c8345264736f6c63430007000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806303cf950f1461003b578063a5726c451461006b575b600080fd5b610055600480360381019061005091906105f1565b610087565b60405161006291906107e1565b60405180910390f35b6100856004803603810190610080919061061a565b610407565b005b61008f6104ba565b816100986104ba565b6000808381526020019081526020016000206040518060a001604052908160008201548152602001600182018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101585780601f1061012d57610100808354040283529160200191610158565b820191906000526020600020905b81548152906001019060200180831161013b57829003601f168201915b50505050508152602001600282018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101fa5780601f106101cf576101008083540402835291602001916101fa565b820191906000526020600020905b8154815290600101906020018083116101dd57829003601f168201915b50505050508152602001600382015481526020016004820160009054906101000a900460ff1615151515815250509050806080015161026e576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610265906107c1565b60405180910390fd5b6000808581526020019081526020016000206040518060a001604052908160008201548152602001600182018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561032e5780601f106103035761010080835404028352916020019161032e565b820191906000526020600020905b81548152906001019060200180831161031157829003601f168201915b50505050508152602001600282018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103d05780601f106103a5576101008083540402835291602001916103d0565b820191906000526020600020905b8154815290600101906020018083116103b357829003601f168201915b50505050508152602001600382015481526020016004820160009054906101000a900460ff16151515158152505092505050919050565b6040518060a00160405280858152602001848152602001838152602001828152602001600115158152506000808681526020019081526020016000206000820151816000015560208201518160010190805190602001906104699291906104eb565b5060408201518160020190805190602001906104869291906104eb565b506060820151816003015560808201518160040160006101000a81548160ff02191690831515021790555090505050505050565b6040518060a00160405280600081526020016060815260200160608152602001600081526020016000151581525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061052c57805160ff191683800117855561055a565b8280016001018555821561055a579182015b8281111561055957825182559160200191906001019061053e565b5b509050610567919061056b565b5090565b5b8082111561058457600081600090555060010161056c565b5090565b600082601f83011261059957600080fd5b81356105ac6105a782610830565b610803565b915080825260208301602083018583830111156105c857600080fd5b6105d383828461089f565b50505092915050565b6000813590506105eb816108f2565b92915050565b60006020828403121561060357600080fd5b6000610611848285016105dc565b91505092915050565b6000806000806080858703121561063057600080fd5b600061063e878288016105dc565b945050602085013567ffffffffffffffff81111561065b57600080fd5b61066787828801610588565b935050604085013567ffffffffffffffff81111561068457600080fd5b61069087828801610588565b92505060606106a1878288016105dc565b91505092959194509250565b6106b681610889565b82525050565b60006106c78261085c565b6106d18185610867565b93506106e18185602086016108ae565b6106ea816108e1565b840191505092915050565b6000610702600f83610878565b91507f53746f7279206e6f7420666f756e6400000000000000000000000000000000006000830152602082019050919050565b600060a08301600083015161074d60008601826107b2565b506020830151848203602086015261076582826106bc565b9150506040830151848203604086015261077f82826106bc565b915050606083015161079460608601826107b2565b5060808301516107a760808601826106ad565b508091505092915050565b6107bb81610895565b82525050565b600060208201905081810360008301526107da816106f5565b9050919050565b600060208201905081810360008301526107fb8184610735565b905092915050565b6000604051905081810181811067ffffffffffffffff8211171561082657600080fd5b8060405250919050565b600067ffffffffffffffff82111561084757600080fd5b601f19601f8301169050602081019050919050565b600081519050919050565b600082825260208201905092915050565b600082825260208201905092915050565b60008115159050919050565b6000819050919050565b82818337600083830152505050565b60005b838110156108cc5780820151818401526020810190506108b1565b838111156108db576000848401525b50505050565b6000601f19601f8301169050919050565b6108fb81610895565b811461090657600080fd5b5056fea2646970667358221220f5f155c8a5c750d9f4375a89bc1fbd0227f6719204222b2bb52865f1d4c8345264736f6c63430007000033",
+  "immutableReferences": {},
+  "sourceMap": "104:793:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "104:793:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;729:165;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;486:235;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;729:165;836:12;;:::i;:::-;813:3;372:18;;:::i;:::-;393:8;:13;402:3;393:13;;;;;;;;;;;372:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;425:5;:11;;;417:39;;;;;;;;;;;;:::i;:::-;;;;;;;;;873:8:::1;:13:::0;882:3:::1;873:13;;;;;;;;;;;866:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;::::0;::::1;;;729:165:::0;;;;;:::o;486:235::-;665:48;;;;;;;;671:3;665:48;;;;676:9;665:48;;;;687:8;665:48;;;;697:9;665:48;;;;708:4;665:48;;;;;649:8;:13;658:3;649:13;;;;;;;;;;;:64;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;486:235;;;;:::o;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;6:442::-;;108:3;101:4;93:6;89:17;85:27;75:2;;126:1;123;116:12;75:2;163:6;150:20;185:65;200:49;242:6;200:49;:::i;:::-;185:65;:::i;:::-;176:74;;270:6;263:5;256:21;306:4;298:6;294:17;339:4;332:5;328:16;374:3;365:6;360:3;356:16;353:25;350:2;;;391:1;388;381:12;350:2;401:41;435:6;430:3;425;401:41;:::i;:::-;68:380;;;;;;;:::o;456:130::-;;536:6;523:20;514:29;;548:33;575:5;548:33;:::i;:::-;508:78;;;;:::o;593:241::-;;697:2;685:9;676:7;672:23;668:32;665:2;;;713:1;710;703:12;665:2;748:1;765:53;810:7;801:6;790:9;786:22;765:53;:::i;:::-;755:63;;727:97;659:175;;;;:::o;841:829::-;;;;;1016:3;1004:9;995:7;991:23;987:33;984:2;;;1033:1;1030;1023:12;984:2;1068:1;1085:53;1130:7;1121:6;1110:9;1106:22;1085:53;:::i;:::-;1075:63;;1047:97;1203:2;1192:9;1188:18;1175:32;1227:18;1219:6;1216:30;1213:2;;;1259:1;1256;1249:12;1213:2;1279:63;1334:7;1325:6;1314:9;1310:22;1279:63;:::i;:::-;1269:73;;1154:194;1407:2;1396:9;1392:18;1379:32;1431:18;1423:6;1420:30;1417:2;;;1463:1;1460;1453:12;1417:2;1483:63;1538:7;1529:6;1518:9;1514:22;1483:63;:::i;:::-;1473:73;;1358:194;1583:2;1601:53;1646:7;1637:6;1626:9;1622:22;1601:53;:::i;:::-;1591:63;;1562:98;978:692;;;;;;;:::o;1677:94::-;1744:21;1759:5;1744:21;:::i;:::-;1739:3;1732:34;1726:45;;:::o;1778:327::-;;1880:39;1913:5;1880:39;:::i;:::-;1931:61;1985:6;1980:3;1931:61;:::i;:::-;1924:68;;1997:52;2042:6;2037:3;2030:4;2023:5;2019:16;1997:52;:::i;:::-;2070:29;2092:6;2070:29;:::i;:::-;2065:3;2061:39;2054:46;;1860:245;;;;;:::o;2113:315::-;;2273:67;2337:2;2332:3;2273:67;:::i;:::-;2266:74;;2373:17;2369:1;2364:3;2360:11;2353:38;2419:2;2414:3;2410:12;2403:19;;2259:169;;;:::o;2489:1105::-;;2632:4;2627:3;2623:14;2713:4;2706:5;2702:16;2696:23;2725:63;2782:4;2777:3;2773:14;2759:12;2725:63;:::i;:::-;2652:142;2871:4;2864:5;2860:16;2854:23;2923:3;2917:4;2913:14;2906:4;2901:3;2897:14;2890:38;2943:73;3011:4;2997:12;2943:73;:::i;:::-;2935:81;;2804:224;3104:4;3097:5;3093:16;3087:23;3156:3;3150:4;3146:14;3139:4;3134:3;3130:14;3123:38;3176:73;3244:4;3230:12;3176:73;:::i;:::-;3168:81;;3038:223;3338:4;3331:5;3327:16;3321:23;3350:63;3407:4;3402:3;3398:14;3384:12;3350:63;:::i;:::-;3271:148;3493:4;3486:5;3482:16;3476:23;3505:57;3556:4;3551:3;3547:14;3533:12;3505:57;:::i;:::-;3429:139;3585:4;3578:11;;2605:989;;;;;:::o;3601:103::-;3674:24;3692:5;3674:24;:::i;:::-;3669:3;3662:37;3656:48;;:::o;3711:416::-;;3911:2;3900:9;3896:18;3888:26;;3961:9;3955:4;3951:20;3947:1;3936:9;3932:17;3925:47;3986:131;4112:4;3986:131;:::i;:::-;3978:139;;3882:245;;;:::o;4134:354::-;;4303:2;4292:9;4288:18;4280:26;;4353:9;4347:4;4343:20;4339:1;4328:9;4324:17;4317:47;4378:100;4473:4;4464:6;4378:100;:::i;:::-;4370:108;;4274:214;;;;:::o;4495:256::-;;4557:2;4551:9;4541:19;;4595:4;4587:6;4583:17;4694:6;4682:10;4679:22;4658:18;4646:10;4643:34;4640:62;4637:2;;;4715:1;4712;4705:12;4637:2;4735:10;4731:2;4724:22;4535:216;;;;:::o;4758:322::-;;4902:18;4894:6;4891:30;4888:2;;;4934:1;4931;4924:12;4888:2;5001:4;4997:9;4990:4;4982:6;4978:17;4974:33;4966:41;;5065:4;5059;5055:15;5047:23;;4825:255;;;:::o;5087:122::-;;5181:5;5175:12;5165:22;;5146:63;;;:::o;5217:153::-;;5322:6;5317:3;5310:19;5359:4;5354:3;5350:14;5335:29;;5303:67;;;;:::o;5379:163::-;;5494:6;5489:3;5482:19;5531:4;5526:3;5522:14;5507:29;;5475:67;;;;:::o;5550:85::-;;5623:5;5616:13;5609:21;5598:32;;5592:43;;;:::o;5642:72::-;;5704:5;5693:16;;5687:27;;;:::o;5722:145::-;5803:6;5798:3;5793;5780:30;5859:1;5850:6;5845:3;5841:16;5834:27;5773:94;;;:::o;5876:268::-;5941:1;5948:101;5962:6;5959:1;5956:13;5948:101;;;6038:1;6033:3;6029:11;6023:18;6019:1;6014:3;6010:11;6003:39;5984:2;5981:1;5977:10;5972:15;;5948:101;;;6064:6;6061:1;6058:13;6055:2;;;6129:1;6120:6;6115:3;6111:16;6104:27;6055:2;5925:219;;;;:::o;6152:97::-;;6240:2;6236:7;6231:2;6224:5;6220:14;6216:28;6206:38;;6200:49;;;:::o;6257:117::-;6326:24;6344:5;6326:24;:::i;:::-;6319:5;6316:35;6306:2;;6365:1;6362;6355:12;6306:2;6300:74;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.8.0;\r\npragma experimental ABIEncoderV2;\r\n\r\ncontract Strories {\r\n    struct Story {\r\n        uint256 id;\r\n        string headline;\r\n        string content;\r\n        uint256 postedAt;\r\n        bool exist;\r\n    }\r\n    mapping(uint256 => Story) private database;\r\n\r\n    modifier storyExists(uint256 _id) {\r\n        Story memory story = database[_id];\r\n        require(story.exist, \"Story not found\");\r\n\r\n        _;\r\n    }\r\n\r\n    function postStory(\r\n        uint256 _id,\r\n        string memory _headline,\r\n        string memory _content,\r\n        uint256 _postedAt\r\n    ) external {\r\n        database[_id] = Story(_id, _headline, _content, _postedAt, true);\r\n    }\r\n\r\n    function getStory(uint256 _id)\r\n        external\r\n        view\r\n        storyExists(_id)\r\n        returns (Story memory)\r\n    {\r\n        return database[_id];\r\n    }\r\n}\r\n",
+  "sourcePath": "C:/FAKULTET/1.diplomski/Blockchain/Projekt/contracts/Stories.sol",
+  "ast": {
+    "absolutePath": "/C/FAKULTET/1.diplomski/Blockchain/Projekt/contracts/Stories.sol",
+    "exportedSymbols": {
+      "Strories": [
+        108
+      ]
+    },
+    "id": 109,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:32:1"
+      },
+      {
+        "id": 35,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "67:33:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 108,
+        "linearizedBaseContracts": [
+          108
+        ],
+        "name": "Strories",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Strories.Story",
+            "id": 46,
+            "members": [
+              {
+                "constant": false,
+                "id": 37,
+                "mutability": "mutable",
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "153:10:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 36,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "153:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 39,
+                "mutability": "mutable",
+                "name": "headline",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "174:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 38,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "174:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 41,
+                "mutability": "mutable",
+                "name": "content",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "200:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 40,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "200:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 43,
+                "mutability": "mutable",
+                "name": "postedAt",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "225:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 42,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "225:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 45,
+                "mutability": "mutable",
+                "name": "exist",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "252:10:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 44,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "252:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Story",
+            "nodeType": "StructDefinition",
+            "scope": 108,
+            "src": "129:141:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 50,
+            "mutability": "mutable",
+            "name": "database",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 108,
+            "src": "276:42:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+              "typeString": "mapping(uint256 => struct Strories.Story)"
+            },
+            "typeName": {
+              "id": 49,
+              "keyType": {
+                "id": 47,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "284:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "276:25:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                "typeString": "mapping(uint256 => struct Strories.Story)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 48,
+                "name": "Story",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 46,
+                "src": "295:5:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Story_$46_storage_ptr",
+                  "typeString": "struct Strories.Story"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 67,
+              "nodeType": "Block",
+              "src": "361:117:1",
+              "statements": [
+                {
+                  "assignments": [
+                    55
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 55,
+                      "mutability": "mutable",
+                      "name": "story",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 67,
+                      "src": "372:18:1",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                        "typeString": "struct Strories.Story"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 54,
+                        "name": "Story",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 46,
+                        "src": "372:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Story_$46_storage_ptr",
+                          "typeString": "struct Strories.Story"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 59,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 56,
+                      "name": "database",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 50,
+                      "src": "393:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                        "typeString": "mapping(uint256 => struct Strories.Story storage ref)"
+                      }
+                    },
+                    "id": 58,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 57,
+                      "name": "_id",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 52,
+                      "src": "402:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "393:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage",
+                      "typeString": "struct Strories.Story storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "372:34:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 61,
+                          "name": "story",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 55,
+                          "src": "425:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                            "typeString": "struct Strories.Story memory"
+                          }
+                        },
+                        "id": 62,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "exist",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 45,
+                        "src": "425:11:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "53746f7279206e6f7420666f756e64",
+                        "id": 63,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "438:17:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_d8f8b7882d49232099ddff4dbe10e7554b34b5ceecea36b999dd8b2dd0dfc52e",
+                          "typeString": "literal_string \"Story not found\""
+                        },
+                        "value": "Story not found"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_d8f8b7882d49232099ddff4dbe10e7554b34b5ceecea36b999dd8b2dd0dfc52e",
+                          "typeString": "literal_string \"Story not found\""
+                        }
+                      ],
+                      "id": 60,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "417:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 64,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "417:39:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 65,
+                  "nodeType": "ExpressionStatement",
+                  "src": "417:39:1"
+                },
+                {
+                  "id": 66,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "469:1:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 68,
+            "name": "storyExists",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 53,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 68,
+                  "src": "348:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 51,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "347:13:1"
+            },
+            "src": "327:151:1",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 91,
+              "nodeType": "Block",
+              "src": "638:83:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 79,
+                        "name": "database",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 50,
+                        "src": "649:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                          "typeString": "mapping(uint256 => struct Strories.Story storage ref)"
+                        }
+                      },
+                      "id": 81,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 80,
+                        "name": "_id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 70,
+                        "src": "658:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "649:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Story_$46_storage",
+                        "typeString": "struct Strories.Story storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 83,
+                          "name": "_id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "671:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 84,
+                          "name": "_headline",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 72,
+                          "src": "676:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 85,
+                          "name": "_content",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 74,
+                          "src": "687:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 86,
+                          "name": "_postedAt",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 76,
+                          "src": "697:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "74727565",
+                          "id": 87,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "708:4:1",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        ],
+                        "id": 82,
+                        "name": "Story",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 46,
+                        "src": "665:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Story_$46_storage_ptr_$",
+                          "typeString": "type(struct Strories.Story storage pointer)"
+                        }
+                      },
+                      "id": 88,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "665:48:1",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                        "typeString": "struct Strories.Story memory"
+                      }
+                    },
+                    "src": "649:64:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage",
+                      "typeString": "struct Strories.Story storage ref"
+                    }
+                  },
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "649:64:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "a5726c45",
+            "id": 92,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "postStory",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "515:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "515:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 72,
+                  "mutability": "mutable",
+                  "name": "_headline",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "537:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 71,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "537:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 74,
+                  "mutability": "mutable",
+                  "name": "_content",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "571:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 73,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "571:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 76,
+                  "mutability": "mutable",
+                  "name": "_postedAt",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "604:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "604:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "504:124:1"
+            },
+            "returnParameters": {
+              "id": 78,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "638:0:1"
+            },
+            "scope": 108,
+            "src": "486:235:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 106,
+              "nodeType": "Block",
+              "src": "855:39:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 102,
+                      "name": "database",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 50,
+                      "src": "873:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                        "typeString": "mapping(uint256 => struct Strories.Story storage ref)"
+                      }
+                    },
+                    "id": 104,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 103,
+                      "name": "_id",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 94,
+                      "src": "882:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "873:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage",
+                      "typeString": "struct Strories.Story storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 101,
+                  "id": 105,
+                  "nodeType": "Return",
+                  "src": "866:20:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "03cf950f",
+            "id": 107,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 97,
+                    "name": "_id",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 94,
+                    "src": "813:3:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 98,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 96,
+                  "name": "storyExists",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 68,
+                  "src": "801:11:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "801:16:1"
+              }
+            ],
+            "name": "getStory",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 95,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 94,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 107,
+                  "src": "747:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 93,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "747:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "746:13:1"
+            },
+            "returnParameters": {
+              "id": 101,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 100,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 107,
+                  "src": "836:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                    "typeString": "struct Strories.Story"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 99,
+                    "name": "Story",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 46,
+                    "src": "836:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage_ptr",
+                      "typeString": "struct Strories.Story"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "835:14:1"
+            },
+            "scope": 108,
+            "src": "729:165:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 109,
+        "src": "104:793:1"
+      }
+    ],
+    "src": "33:866:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/FAKULTET/1.diplomski/Blockchain/Projekt/contracts/Stories.sol",
+    "exportedSymbols": {
+      "Strories": [
+        108
+      ]
+    },
+    "id": 109,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:32:1"
+      },
+      {
+        "id": 35,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "67:33:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 108,
+        "linearizedBaseContracts": [
+          108
+        ],
+        "name": "Strories",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Strories.Story",
+            "id": 46,
+            "members": [
+              {
+                "constant": false,
+                "id": 37,
+                "mutability": "mutable",
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "153:10:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 36,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "153:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 39,
+                "mutability": "mutable",
+                "name": "headline",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "174:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 38,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "174:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 41,
+                "mutability": "mutable",
+                "name": "content",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "200:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 40,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "200:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 43,
+                "mutability": "mutable",
+                "name": "postedAt",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "225:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 42,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "225:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 45,
+                "mutability": "mutable",
+                "name": "exist",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 46,
+                "src": "252:10:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 44,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "252:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Story",
+            "nodeType": "StructDefinition",
+            "scope": 108,
+            "src": "129:141:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 50,
+            "mutability": "mutable",
+            "name": "database",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 108,
+            "src": "276:42:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+              "typeString": "mapping(uint256 => struct Strories.Story)"
+            },
+            "typeName": {
+              "id": 49,
+              "keyType": {
+                "id": 47,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "284:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "276:25:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                "typeString": "mapping(uint256 => struct Strories.Story)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 48,
+                "name": "Story",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 46,
+                "src": "295:5:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Story_$46_storage_ptr",
+                  "typeString": "struct Strories.Story"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 67,
+              "nodeType": "Block",
+              "src": "361:117:1",
+              "statements": [
+                {
+                  "assignments": [
+                    55
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 55,
+                      "mutability": "mutable",
+                      "name": "story",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 67,
+                      "src": "372:18:1",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                        "typeString": "struct Strories.Story"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 54,
+                        "name": "Story",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 46,
+                        "src": "372:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Story_$46_storage_ptr",
+                          "typeString": "struct Strories.Story"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 59,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 56,
+                      "name": "database",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 50,
+                      "src": "393:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                        "typeString": "mapping(uint256 => struct Strories.Story storage ref)"
+                      }
+                    },
+                    "id": 58,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 57,
+                      "name": "_id",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 52,
+                      "src": "402:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "393:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage",
+                      "typeString": "struct Strories.Story storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "372:34:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 61,
+                          "name": "story",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 55,
+                          "src": "425:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                            "typeString": "struct Strories.Story memory"
+                          }
+                        },
+                        "id": 62,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "exist",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 45,
+                        "src": "425:11:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "53746f7279206e6f7420666f756e64",
+                        "id": 63,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "438:17:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_d8f8b7882d49232099ddff4dbe10e7554b34b5ceecea36b999dd8b2dd0dfc52e",
+                          "typeString": "literal_string \"Story not found\""
+                        },
+                        "value": "Story not found"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_d8f8b7882d49232099ddff4dbe10e7554b34b5ceecea36b999dd8b2dd0dfc52e",
+                          "typeString": "literal_string \"Story not found\""
+                        }
+                      ],
+                      "id": 60,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "417:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 64,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "417:39:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 65,
+                  "nodeType": "ExpressionStatement",
+                  "src": "417:39:1"
+                },
+                {
+                  "id": 66,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "469:1:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 68,
+            "name": "storyExists",
+            "nodeType": "ModifierDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 53,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 52,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 68,
+                  "src": "348:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 51,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "347:13:1"
+            },
+            "src": "327:151:1",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 91,
+              "nodeType": "Block",
+              "src": "638:83:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 79,
+                        "name": "database",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 50,
+                        "src": "649:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                          "typeString": "mapping(uint256 => struct Strories.Story storage ref)"
+                        }
+                      },
+                      "id": 81,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 80,
+                        "name": "_id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 70,
+                        "src": "658:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "649:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Story_$46_storage",
+                        "typeString": "struct Strories.Story storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 83,
+                          "name": "_id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 70,
+                          "src": "671:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 84,
+                          "name": "_headline",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 72,
+                          "src": "676:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 85,
+                          "name": "_content",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 74,
+                          "src": "687:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 86,
+                          "name": "_postedAt",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 76,
+                          "src": "697:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "74727565",
+                          "id": 87,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "bool",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "708:4:1",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          },
+                          "value": "true"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        ],
+                        "id": 82,
+                        "name": "Story",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 46,
+                        "src": "665:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Story_$46_storage_ptr_$",
+                          "typeString": "type(struct Strories.Story storage pointer)"
+                        }
+                      },
+                      "id": 88,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "665:48:1",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                        "typeString": "struct Strories.Story memory"
+                      }
+                    },
+                    "src": "649:64:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage",
+                      "typeString": "struct Strories.Story storage ref"
+                    }
+                  },
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "649:64:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "a5726c45",
+            "id": 92,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "postStory",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "515:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "515:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 72,
+                  "mutability": "mutable",
+                  "name": "_headline",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "537:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 71,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "537:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 74,
+                  "mutability": "mutable",
+                  "name": "_content",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "571:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 73,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "571:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 76,
+                  "mutability": "mutable",
+                  "name": "_postedAt",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 92,
+                  "src": "604:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "604:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "504:124:1"
+            },
+            "returnParameters": {
+              "id": 78,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "638:0:1"
+            },
+            "scope": 108,
+            "src": "486:235:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 106,
+              "nodeType": "Block",
+              "src": "855:39:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 102,
+                      "name": "database",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 50,
+                      "src": "873:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Story_$46_storage_$",
+                        "typeString": "mapping(uint256 => struct Strories.Story storage ref)"
+                      }
+                    },
+                    "id": 104,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 103,
+                      "name": "_id",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 94,
+                      "src": "882:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "873:13:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage",
+                      "typeString": "struct Strories.Story storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 101,
+                  "id": 105,
+                  "nodeType": "Return",
+                  "src": "866:20:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "03cf950f",
+            "id": 107,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 97,
+                    "name": "_id",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 94,
+                    "src": "813:3:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 98,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 96,
+                  "name": "storyExists",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 68,
+                  "src": "801:11:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "801:16:1"
+              }
+            ],
+            "name": "getStory",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 95,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 94,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 107,
+                  "src": "747:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 93,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "747:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "746:13:1"
+            },
+            "returnParameters": {
+              "id": 101,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 100,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 107,
+                  "src": "836:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Story_$46_memory_ptr",
+                    "typeString": "struct Strories.Story"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 99,
+                    "name": "Story",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 46,
+                    "src": "836:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Story_$46_storage_ptr",
+                      "typeString": "struct Strories.Story"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "835:14:1"
+            },
+            "scope": 108,
+            "src": "729:165:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 109,
+        "src": "104:793:1"
+      }
+    ],
+    "src": "33:866:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.0+commit.9e61f92b.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.2",
+  "updatedAt": "2020-11-19T11:13:41.775Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
