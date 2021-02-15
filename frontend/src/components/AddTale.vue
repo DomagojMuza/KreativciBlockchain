@@ -1,12 +1,13 @@
 <template>
   <section>
-    <b-navbar-item class="" @click="cardModal()">Add your tale</b-navbar-item>
+    <div @click="cardModal()">Add your tale</div>
   </section>
 </template>
 
 <script>
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
+import EventBus from '@/event-bus/bus';
 export default {
   methods: {
     async cardModal() {
@@ -26,15 +27,16 @@ export default {
           if (
             headline === "" ||
             content === "" ||
-            headline.length <= 10 ||
-            content.length <= 500
+            headline.length < 4 ||
+            content.length <= 200
           )
-            return this.$error.fireError("Headline and content must be longer");
+            return this.$error.fireError("Headline(4 characters) and content(200 characters) must be longer");
 
           await this.$store.postStory(headline, content);
+          Swal.fire("Posted!");
           localStorage.clear();
           this.$store.getAllTales();
-          Swal.fire("Posted!");
+          EventBus.$emit('newTaleAdded');
         },
       });
       if (formValues) {

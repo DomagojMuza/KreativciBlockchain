@@ -1,14 +1,13 @@
 import Web3 from 'web3'
 import ShortTales from "../../build/contracts/ShortTales.json";
 import uniqid from "uniqid";
-// import fb from 'firebase'
 import db from '@/firebase/firebaseInit'
 
 let store = {
     account: undefined,
     tales: [],
     contract: undefined,
-    connected: false,
+    connected: true,
 
     connectToMeta: function(){
         if (window.ethereum) {
@@ -30,10 +29,11 @@ let store = {
     getAllTales: async function(){
         this.tales = []
         this.firstThree = []
+        console.log("object");
         try {
             let taleCount = await this.contract.methods.getTalesCount().call({ from: this.account });
             taleCount = parseInt(taleCount)
-
+            console.log(taleCount);
             let counter = 1
             for (taleCount; taleCount >= 0; taleCount--) {
                     let taleData = await this.getTaleData(taleCount)
@@ -47,6 +47,7 @@ let store = {
             } 
             return this.tales
         } catch (error) {
+            console.log(error);
             return error
         }   
     },
@@ -81,6 +82,13 @@ let store = {
     fanArtCount: async function(){
         try {
             return await this.contract.methods.getFanArtCount().call({ from: this.account });
+        } catch (error) {
+            return error
+        }
+    },
+    talesCount: async function(){
+        try {
+            return await this.contract.methods.getTalesCount().call({ from: this.account });
         } catch (error) {
             return error
         }

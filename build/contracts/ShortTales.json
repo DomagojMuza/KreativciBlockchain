@@ -6426,6 +6426,192 @@
       "links": {},
       "address": "0x3df151e5240E4f55b1b1f4D0259f426Ce0E28b04",
       "transactionHash": "0x775d7921c1aa22b84ca0e8df7bd0c5f21e0e9886dc35c038ab080194d4c411c7"
+    },
+    "4": {
+      "events": {
+        "0x5269dac985b878c1e45c5bccd6dc41cae5158572d058ede3fde4c6e2cc87b3b1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "comment",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "postedAt",
+              "type": "uint256"
+            }
+          ],
+          "name": "postingComment",
+          "type": "event"
+        },
+        "0xb0b1f735fe11aa494251e44d01c398e96ba00e972a4a37ef8b4e7e300259d7f6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "headline",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "postedAt",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "exist",
+              "type": "bool"
+            }
+          ],
+          "name": "postingStory",
+          "type": "event"
+        },
+        "0x10c81101669dace593483baa465a083c63c8cdbf22e0eb40d00e9ada15757e26": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "bytes18",
+              "name": "id",
+              "type": "bytes18"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "headline",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "postedAt",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "exist",
+              "type": "bool"
+            }
+          ],
+          "name": "postingStory",
+          "type": "event"
+        },
+        "0xcbdfcbdd5797f9a14f86de0fa4fd7382d2999cc4228cf64cbeb77529cbb9f775": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "postedBy",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "headline",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "postedAt",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "exist",
+              "type": "bool"
+            }
+          ],
+          "name": "postingStory",
+          "type": "event"
+        },
+        "0xc9bad667c2b5ae852f0a956aebdf59d9930e76cf48f28016228611eee51f2851": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "postedBy",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "headline",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes[]",
+              "name": "content",
+              "type": "bytes[]"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "postedAt",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "exist",
+              "type": "bool"
+            }
+          ],
+          "name": "postingStory",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x058e011bEE6e67396E082443bCEFFb4755Cd24f5",
+      "transactionHash": "0xdd49fd675c8f8b20a5365ea41e03dbd00c21b78ded48744928ad15e58c6616ec"
     }
   },
   "schemaVersion": "3.3.2",

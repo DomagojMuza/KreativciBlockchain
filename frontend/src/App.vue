@@ -14,23 +14,7 @@ export default {
     navbar,
   },
   async created() {
-    try {
-      this.$store.connectToMeta();
-      let accs = await window.web3.eth.getAccounts();
-      if (accs == undefined || accs[0] == undefined) {
-        setTimeout(
-          function () {
-            this.loadAcc();
-          }.bind(this),
-          3000
-        );
-      } else {
-        this.$store.account = accs[0];
-        this.$store.connected = true;
-      }
-    } catch (error) {
-      this.$error.errorToast(error);
-    }
+    this.$store.connected = false
   },
 };
 </script>

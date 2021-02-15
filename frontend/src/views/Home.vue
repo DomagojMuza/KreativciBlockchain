@@ -28,7 +28,7 @@ export default {
     };
   },
   async created() {
-    this.loadAcc();
+    // this.loadAcc();
     // var account = await window.web3.eth.getAccounts();
     // let result = await this.$contract.methods
     //   .postStory("asdasf", "Star wars", "Luke, I am your father")
@@ -55,6 +55,7 @@ export default {
     },
     connectToMetaMask() {
       this.$store.connectToMeta();
+      this.loadAcc()
     },
   },
 };

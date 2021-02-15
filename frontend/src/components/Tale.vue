@@ -21,7 +21,7 @@
       </div>
       <div class="card-content">
         <div class="content">
-          {{ tale.content.substr(0, 250) }}
+          {{ tale.content.substr(0, 400) }}
           <p class="if" v-if="tale.content.length > 250">...</p>
           <br />
           <time class="time"
@@ -64,5 +64,12 @@ export default {
 }
 .content {
   font-size: 20px;
+}
+
+@media screen and (max-width: 1023px){
+  .card{
+    width: 100%;
+    margin-top:4vh
+  }
 }
 </style>

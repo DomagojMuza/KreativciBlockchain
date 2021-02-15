@@ -7,7 +7,7 @@
         infinite-scroll-disabled="busy"
         infinite-scroll-distance="10"
       >
-        <div class="container" v-if="loaded">
+        <div class="container">
           <div v-for="tale in tales" :key="tale.id">
             <Tale v-bind:tale="tale" />
           </div>
@@ -27,41 +27,36 @@ export default {
   },
   data() {
     return {
-      tales: null,
+      tales: [],
       busy: false,
       slicePosition: 0,
-      loaded: false,
-      fanArtCount: null,
+      talesCount: null,
       imageLinks: [],
     };
   },
   async created() {
-    try {
-      await this.$store.getAllTales();
-      this.tales = this.$store.firstThree;
-      this.loaded = true;
-    } catch (error) {
-      console.log(error);
-      this.$error.fireToast(error);
-    }
+    await this.initLoad();
+    
   },
   methods: {
-    loadMore() {
-      if (!this.loaded) {
-        return;
-      }
+    async loadMore() {
       try {
-        this.busy = true;
-        let nextTales = this.$store.nextTales(this.slicePosition);
-        nextTales.forEach((tale) => {
-          this.tales.push(tale);
-          this.slicePosition++;
-        });
-        this.busy = false;
+        for(let i=0; i<3; i++){
+          if(this.talesCount <= -1) return
+          let tale = await this.$store.getTaleData(this.talesCount)
+          this.tales.push(tale)
+          this.talesCount--
+        }
       } catch (error) {
         this.$error.fireToast(error);
       }
     },
+    async initLoad(){
+      this.talesCount = await this.$store.talesCount()
+      console.log(this.talesCount);
+      await this.loadMore()
+      this.loaded = true; 
+      }
   },
 };
 </script>
@@ -76,4 +71,5 @@ export default {
 .container {
   min-height: 83vh;
 }
+
 </style>

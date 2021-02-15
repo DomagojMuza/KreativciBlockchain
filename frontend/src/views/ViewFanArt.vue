@@ -43,4 +43,10 @@ export default {
 .wrapper {
   min-height: 107vh;
 }
+
+.image{
+  max-height: 1000px;
+  width: auto;
+  object-fit: contain;
+}
 </style>

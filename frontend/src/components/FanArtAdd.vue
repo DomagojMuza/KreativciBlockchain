@@ -1,6 +1,6 @@
 <template>
   <section>
-    <b-navbar-item @click="cardModal()">Post Fan Art</b-navbar-item>
+    <div @click="cardModal()">Post Fan Art</div>
     <b-loading :is-full-page="true" v-model="isLoading"></b-loading>
   </section>
 </template>
@@ -46,7 +46,7 @@ export default {
     async cardModal() {
       const { value: file } = await Swal.fire({
         showLoaderOnConfirm: true,
-        title: "Select image",
+        title: "Select image to upload",
         input: "file",
         inputAttributes: {
           accept: "image/*",
@@ -102,5 +102,9 @@ export default {
 <style lang="css" scoped>
 .navbar-item {
   color: whitesmoke;
+}
+a.navbar-item:hover {
+  background-color: #fafafa;
+  color: #7957d5;
 }
 </style>

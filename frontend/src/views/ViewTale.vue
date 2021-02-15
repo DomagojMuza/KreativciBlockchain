@@ -14,7 +14,7 @@
                 }}
               </p>
 
-              <p>&#8592; Click to Donate</p>
+              <p class="donate">&#8592; Click to Donate</p>
             </div>
           </div>
         </div>
@@ -166,4 +166,19 @@ export default {
 .main-content {
   margin-top: 7vh;
 }
+
+.donate:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px){
+  .viewTale[data-v-04e5a4b6] {
+    padding: 7vh 0;
+    height: 100%;
+  }
+  .card{
+    width: 100%;
+  }
+}
+
 </style>

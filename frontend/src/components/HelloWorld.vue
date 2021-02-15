@@ -4,7 +4,7 @@
       <b-navbar-item><AddTale /></b-navbar-item>
       <b-navbar-item><FanArtAdd /></b-navbar-item>
       <b-navbar-item tag="router-link" to="/tales"> Tales </b-navbar-item>
-      <b-navbar-item tag="router-link" to="/fanart"> FanArt's </b-navbar-item>
+      <b-navbar-item tag="router-link" to="/fanart"> FanArts </b-navbar-item>
     </template>
   </b-navbar>
 </template>
@@ -41,5 +41,15 @@ a.navbar-item:focus {
 a.navbar-item:hover {
   background-color: #fafafa;
   color: #7957d5;
+}
+
+@media screen and (max-width: 1023px){
+  .navbar-item{
+    color: #7957d5;
+  }
+  a.navbar-item:hover{
+    background-color: #7957d5;
+    color: #fafafa
+  }
 }
 </style>
